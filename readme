@@ -1,0 +1,159 @@
+This version has modified makefile. Reason for this was to fix compile isue on SuSE 10.0
+difference is in 
+modif CFLAGS=-Wall -Os -I.
+org   CFLAGS=-Wall -I.
+without -Os parameter ISO extraction did not work on SuSE
+Greeting Kradovan
+   .|'''',                        ||              ||                         
+   ||                             ||              ||     ''                  
+   ||      .|''|, '||''|, ('''' ''||''   '''|.  ''||''   ||  .|''|, `||''|,  
+   ||      ||  ||  ||  ||  `'')   ||    .|''||    ||     ||  ||  ||  ||  ||  
+   `|....' `|..|'  ||..|' `...'   `|..' `|..||.   `|..' .||. `|..|' .||  ||. 
+                   ||                                                        
+                  .||               Coldbird Popstation Mod V2.21            
+
+          Coded and Maintained by Coldbird [vanburace@gmail.com]
+
+   Credits go to... [Dark_Alex] - for the Basic Idea and Conversion Method
+                    [Tinnus]    - for the CDDA Fix - AKA TOC Converter
+                    [Coldbird]  - for EVERYTHING else
+
+   \\GREETINGS//
+   Its me - Coldbird... That Guy from LAN.st - Maybe you already forgot about me... :P
+   I brought you all the first SE EBOOT Fixer for broken 1.5 EBOOTs - That still is being
+   used for 3.03 OE even...
+
+   This Time I bring you something different... Its more like a Mod, than a real new Homebrew.
+
+   May I introduce you all to Copstation - My very own Enhanced Version of Popstation... :-)
+
+   \\FEATURES//
+   It got all the Standard Stuff you get to know from the Original Dark_Alex One...
+   And it also includes Tinnus' CDDA Fix... Again - Both of them are credited above for their work!
+
+   Besides that it got the following [New Features] : *) Bootscreen Exchange (The Warning Screen)       [V1.0]
+                                                            If you place a Greyscale LOGO.PNG in the same Folder
+                                                            as popstation and your ISO it will replace the
+                                                            Original Bootscreen.
+
+                                                            Sidenote: Do not attempt to use a Colored PNG...
+                                                                      It will not corrupt the EBOOT or something but...
+                                                                      The Opening Screen will be kinda puzzled and stuff...
+
+                                                      *) No more BASE.PBP Madness...                    [V1.0]
+                                                            All Needed Information to Create a EBOOT
+                                                            is done on the Source-Side.
+
+                                                      *) Improved Image-Handling                        [V1.0]
+                                                            You are not forced to use a ICON0.PNG Image any longer...
+                                                            If no ICON0.PNG Image is present in your Folder...
+                                                            You simply will end with a Normal Icon-Less PSX EBOOT!
+
+                                                      *) ISO-Extraction Support                         [V2.0]
+                                                            If you were too scared to wipe out your old ISO Files
+                                                            because you feared to loose the Data... This will be yours...
+                                                            This new Function of mine is capable to extract both
+                                                            uncompressed and compressed EBOOTs :-)
+
+                                                      *) Process-Display                                [V2.1]
+                                                            Now you finally can see how far you are with
+                                                            and extracting of your PSX Games!
+
+                                                      *) Auto-GameID Scanning                           [V2.1]
+                                                            If you don't want to search for a appropriate
+                                                            GameID of your Game... Bust It!
+                                                            By using the Word "AUTO" as your gamecode on Tool Startup,
+                                                            Copstation will do the Rest for you... :-)
+
+                                                      *) Included Features from newest DA Popstation    [V2.11]
+                                                            It has the DA Homebrew DATA.PSP included in Source
+                                                            If you intend to use a different DATA.PSP in the EBOOTs,
+                                                            place them in the same Directory as the other Files
+                                                            under the Name DATA.PSP.
+
+                                                      *) Made the CDDA Fix Multiplatform                [V2.2]
+                                                            CDDA Fix will now work on Linux aswell :D
+
+                                                      *) Added iniparser-single Revision                [V2.2]
+
+                                                      *) Exported Binary Data / TOC Procedures          [V2.2]
+                                                         to their own C-Files.
+
+                                                      *) Fixed ISO Size Calculation (thx flatwhatson!)  [V2.21]
+
+                                                      *) Cleaned Up Progress Display                    [V2.21]
+
+   \\COMPILING//
+   As I'm a Linux User... I'm not capable of providing a Windows-Binary of this Mod.
+   A Linux-Binary, compiled on my 64bit AMD System is available on coldbird.lan.st as a Extra Download named "popstation".
+   The Linux Binary I provide of course only works on 64bit Systems (Yeah... I only got this Comp properly setup... xD).
+   Sometimes User are so nice to provide me 32bit Linux and Windows Binaries that I can mirror on my Webpage...
+   If you really can't compile the Source yourself... You will have no other Choice than waiting until such a nice Person
+   forwards me a compiled Binary that fits your System.
+   If you do another Mod, based on this Work... make sure that you credit all the persons that did previous work on
+   popstation aswell like I did!
+   Anyway, for compiling - Simply get a proper Environment Set-Up...
+
+   In Linux you would do so in the Bash, and on Windows - you will have to use a Bash-Clone, called Cygwin...
+
+   Not minding - What Way you choose, you wont have much more work than Navigating into the Folder where you extracted
+   the Source and type "make" in the Prompt...
+
+   You should end up with a Executeable File... :-)
+
+   \\HOW TO//
+   I won't write a explicit How-To here now... The very same Rules used for executing the Standard popstations will also
+   apply here...
+
+   Some Advice thought...
+
+   When you wan't to include Icons, Backgrounds, Sounds, etc...
+   MAKE SURE THEY ARE ALL IN CAPS! OMGZOR! - This might not be important on some Operating Systems, but many OS differ
+   Filenames written in CAPS and those not written in CAPS...
+   So you might end up with popstation not detecting your Images...
+
+   Only Thing I have to add is... That if you want to include a Custom-Bootscreen, place a Greyscale PNG Image named
+   LOGO.PNG in the same folder popstation and your PSX ISO reside in...
+
+   If you do not have a LOGO.PNG (480x272, Greyscale, PNG) for Bootup, my Custom Bootup Screen for POPS will be patched in.
+
+   Also... if you want to include Subchannel and Audio-Data into your EBOOT...
+   (Important for Games like FF9, that otherwise will freeze somewhere in-game)
+   Dump your Gamedisc using CloneCD (CloneCD works fine both in Windows and under VMWare... therefore also on Unix Systems)
+   and instead of the .iso / .bin File, you drag all three Files into the Folder where popstation resides...
+
+   Then just point popstation at the .img File (one of the three generated files... .ccd, .img, .sub) !
+
+   It will automatically include Subchannel Data aswell as Audio-Tracks... ^_^
+
+   For the ISO-Extraction Support... Simply call uppon the Tool with the following Parameter:
+      popstation -iso outputfilename.iso
+
+   It will look for a EBOOT.PBP in the same Folder popstation resides in and output the ISO contained in it to
+   outputfilename.iso - Both Compressed and Uncompressed EBOOTs are supported.
+
+   To force Copstation to Scan for the GameID - rather than using a ID you provide, just call popstation with the
+   Parameter AUTO as your gamecode :-)
+
+   \\FOR GUI-USERS//
+   You should be able to use this Mod with about every GUI available - As the Commandline Settings remained the same.
+   But you will lack specific Control of the Bootscreen Changes...
+   Nontheless thought, you finally won't need BASE.PBP anymore... :P
+
+   \\GREETINGS & ANTI GREETINGS//
+   Hm... the Usual Stuff here - I greet Everyone that knows me and... Well - Ya know that Stuff...
+   Especially I wanna greet - Mathieulh, jas0nuk, harleyg, cyanide, spectroplasm, corpdecker, and a few Peaple I prolly
+   forgot about... And of course the LAN.st Peaple in General...
+
+   This Time thought... I also wanna add a Anti-Greeting...
+
+   Yes - Im talking about you Iceberg... You know who you are...
+   Also... who doesn't like my Work... Go to Hell - I'm sure you couldn't even do something like this... So... SHADDUP!
+
+   \\CONTACT//
+   If you really need to get in Contact with me... Feel free to do so in any possible way...
+
+   e-m@il : vanburace@gmail.com
+   msn    : coldbird123@hotmail.com
+   irc    : irc.lan.st #psp
+            ...most of the Time I'm idle working on some coding or stuff... If it's important... Whisper Me :-)
